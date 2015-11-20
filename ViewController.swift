@@ -43,6 +43,13 @@ class ViewController: UIViewController {
         view.addSubview(decrementButton)
         decrementButton.addTarget(self, action: "decrementCount", forControlEvents: .TouchUpInside)
         
+        let colorChanger = UIButton()
+        colorChanger.frame = CGRectMake(150, 300, 150, 60)
+        colorChanger.setTitle("ChangeColor", forState: .Normal)
+        colorChanger.setTitleColor(UIColor.purpleColor(), forState: .Normal)
+        view.addSubview(colorChanger)
+        colorChanger.addTarget(self, action: "toggleColor", forControlEvents: .TouchUpInside)
+        
         setUpLabels()
     }
     
@@ -59,6 +66,10 @@ class ViewController: UIViewController {
     func setUpLabels(){
         label.text = "\(count)"
         additionalLabel.text = "\(count)"
+    }
+    
+    func toggleColor(){
+        view.backgroundColor = (view.backgroundColor == UIColor.brownColor()) ? UIColor.whiteColor() : UIColor.brownColor()
     }
 
 
