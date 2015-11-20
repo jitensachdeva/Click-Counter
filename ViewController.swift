@@ -20,28 +20,43 @@ class ViewController: UIViewController {
         
         let label = UILabel()
         label.frame = CGRectMake(150,150,60,60)
-        label.text = "0"
         view.addSubview(label)
         self.label = label
         
         let additionLabel = UILabel()
         additionLabel.frame = CGRectMake(200, 150, 60, 60)
-        additionLabel.text = "0"
 //        additionalLabel.textColor = UIColor.redColor()
         view.addSubview(additionLabel)
         self.additionalLabel = additionLabel
         
         let button = UIButton()
         button.frame = CGRectMake(150,250, 60,60)
-        button.setTitle("click", forState: .Normal)
+        button.setTitle("++", forState: .Normal)
         button.setTitleColor(UIColor.blueColor(), forState: .Normal)
         view.addSubview(button)
-        
         button.addTarget(self, action: "incrementCount", forControlEvents: .TouchUpInside)
+        
+        let decrementButton = UIButton()
+        decrementButton.frame = CGRectMake(200, 250, 60, 60)
+        decrementButton.setTitle("--", forState: .Normal)
+        decrementButton.setTitleColor(UIColor.redColor(), forState: .Normal)
+        view.addSubview(decrementButton)
+        decrementButton.addTarget(self, action: "decrementCount", forControlEvents: .TouchUpInside)
+        
+        setUpLabels()
     }
     
     func incrementCount(){
         count++
+        setUpLabels()
+    }
+    
+    func decrementCount(){
+        count--
+        setUpLabels()
+    }
+    
+    func setUpLabels(){
         label.text = "\(count)"
         additionalLabel.text = "\(count)"
     }
