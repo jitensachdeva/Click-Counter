@@ -16,16 +16,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let label = UILabel()
+        let label = UILabel()   
         label.frame = CGRectMake(150,150,60,60)
         view.addSubview(label)
         self.label = label
         
         let additionLabel = UILabel()
         additionLabel.frame = CGRectMake(200, 150, 60, 60)
-//        additionalLabel.textColor = UIColor.redColor()
+        additionalLabel.textColor = UIColor.redColor()
         view.addSubview(additionLabel)
         self.additionalLabel = additionLabel
         
